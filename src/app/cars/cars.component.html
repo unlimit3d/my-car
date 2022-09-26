@@ -1,8 +1,21 @@
-<h2>ข้อมูลรถ {{name}}</h2>
-Model: {{model}}
-ราคา: {{price}}
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">
+      <label for="">ชื่อรถ</label>
+      <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="name">
+    </div>
+  </div>
+</div>
 
-<h2>ข้อมูลรถ {{car.name}}</h2>
+<div class="row">
+  <div class="col-md-12 car">
+    <h2>ข้อมูลรถ {{name}}</h2>
+    <span>Model: {{model}}
+      ราคา: {{price}}</span>
+  </div>
+</div>
+
+<h2 class="blue">ข้อมูลรถ {{car.name}}</h2>
 Model: {{car.model}}
 ราคา: {{car.price}}
 
