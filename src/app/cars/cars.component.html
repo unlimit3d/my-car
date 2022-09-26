@@ -1,23 +1,40 @@
-<div class="row">
-  <div class="col-md-3">
-    <div class="form-group">
-      <label for="">ชื่อรถ</label>
-      <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="name">
+<form (ngSubmit)="saveCar()">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="">ชื่อรถ</label>
+        <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="car.name" name="name">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="">Model</label>
+        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="car.model" name="model">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="">ราคา</label>
+        <input type="text" class="form-control" placeholder="ราคา" [(ngModel)]="car.price" name="price">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="">&nbsp;</label><br>
+      <button class="btn btn-primary">OK</button>
     </div>
   </div>
-</div>
-
-<div class="row">
+</form>
+<!-- <div class=" row">
   <div class="col-md-12 car">
     <h2>ข้อมูลรถ {{name}}</h2>
     <span>Model: {{model}}
       ราคา: {{price}}</span>
   </div>
-</div>
+</div> -->
 
-<h2 class="blue">ข้อมูลรถ {{car.name}}</h2>
+<!-- <h2 class="blue">ข้อมูลรถ {{car.name}}</h2>
 Model: {{car.model}}
-ราคา: {{car.price}}
+ราคา: {{car.price}} -->
 
 <div *ngFor="let car of cars">
   <h2>ข้อมูลรถ {{car.name}}</h2>
