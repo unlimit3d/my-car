@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">ชื่อรถ</label>
-        <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="car.name" name="name">
+        <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="car.name" name="name" required>
       </div>
     </div>
     <div class="col-md-3">
@@ -15,7 +15,7 @@
     <div class="col-md-3">
       <div class="form-group">
         <label for="">ราคา</label>
-        <input type="text" class="form-control" placeholder="ราคา" [(ngModel)]="car.price" name="price">
+        <input type="number" class="form-control" placeholder="ราคา" [(ngModel)]="car.price" name="price" required>
       </div>
     </div>
     <div class="col-md-3">

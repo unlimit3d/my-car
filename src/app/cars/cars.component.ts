@@ -18,9 +18,9 @@ export class CarsComponent implements OnInit, OnChanges {
   // price = 1000000;
 
   car:Car={
-    name: 'Toyota',
-    model: 'VIGO',
-    price: 500000
+    name: '',
+    model: '',
+    price: 0
   };
 
   cars:Car[] = [
@@ -54,11 +54,26 @@ export class CarsComponent implements OnInit, OnChanges {
 
   }
 
+  // บันทึกข้อมูลรถ
   saveCar(){
-    console.log(this.car);
+    // console.log(this.car);
+
+    if(this.car.name == ''){
+      alert('โปรดกรอกชื่อยี่ห้อ');
+      return;
+    }
+
+    if(this.car.price <= 0){
+      alert('โปรดกรอกราคา');
+      return;
+    }
 
     this.cars.push(this.car);
-
+    this.car={
+      name: '',
+      model: '',
+      price: 0
+    };
   }
 
 }
