@@ -23,7 +23,9 @@
     </div>
     <div class="col-md-3">
       <label for="">&nbsp;</label><br>
-      <button class="btn btn-primary">OK</button>
+      <button class="btn btn-primary" *ngIf="flag=='NEW'">OK</button>
+
+      <button class="btn btn-warning" type="button" *ngIf="flag=='EDIT'" (click)="onSaveEdit()">Save Edit</button>
     </div>
   </div>
 </form>
@@ -53,6 +55,7 @@ Model: {{car.model}}
       <th>รุ่น</th>
       <th>ราคา</th>
       <th>Vat</th>
+      <th>จัดการ</th>
     </tr>
   </thead>
   <tbody>
@@ -66,6 +69,7 @@ Model: {{car.model}}
       </td>
       <td>{{rs.price}}</td>
       <td>{{rs.vat}}</td>
+      <td><button type="button" class="btn btn-warning" (click)="onEdit(rs, i)">แก้ไข</button></td>
     </tr>
   </tbody>
 </table>
