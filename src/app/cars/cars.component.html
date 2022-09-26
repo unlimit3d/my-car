@@ -36,8 +36,31 @@
 Model: {{car.model}}
 ราคา: {{car.price}} -->
 
-<div *ngFor="let car of cars">
-  <h2>ข้อมูลรถ {{car.name}}</h2>
-  Model: {{car.model}}
-  ราคา: {{car.price}}
-</div>
+<!-- <div *ngFor="let c of cars">
+  <h2>ข้อมูลรถ {{c.name}}</h2>
+  Model: {{c['model']}}
+  ราคา: {{c.price}}
+</div> -->
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr class="bg-dark text-white">
+      <td>#</td>
+      <th width="50%">ชื่อยี่ห้อ</th>
+      <th>รุ่น</th>
+      <th>ราคา</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- while ($rs = mysql_fetch_assoc){} -->
+    <tr *ngFor="let rs of cars; let i = index">
+      <td scope="row">{{i+1}}</td>
+      <td>{{rs.name}}</td>
+      <td>
+        <span *ngIf="rs.model =='' || rs.model == null">-</span>
+        <span *ngIf="rs.model !='' && rs.model != null">{{rs.model}}</span>
+      </td>
+      <td>{{rs.price}}</td>
+    </tr>
+  </tbody>
+</table>
