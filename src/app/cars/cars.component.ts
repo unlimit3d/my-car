@@ -1,9 +1,11 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 export interface Car{
   name:string;
   model?:string;
   price:number;
+  vat?:number;
 }
 
 @Component({
@@ -55,18 +57,30 @@ export class CarsComponent implements OnInit, OnChanges {
   }
 
   // บันทึกข้อมูลรถ
-  saveCar(){
+  saveCar(f:NgForm){
     // console.log(this.car);
-
-    if(this.car.name == ''){
-      alert('โปรดกรอกชื่อยี่ห้อ');
+    if(f.invalid){
+      alert('โปรดตรวจสอบฟอร์ม');
       return;
     }
 
-    if(this.car.price <= 0){
-      alert('โปรดกรอกราคา');
-      return;
-    }
+
+    let vat = 0;
+    vat = this.car.price*7/100;
+    this.car.vat = vat;
+    console.log(vat);
+
+    // if(this.car.name == ''){
+    //   alert('โปรดกรอกชื่อยี่ห้อ');
+    //   return;
+    // }
+
+    // if(this.car.price <= 0){
+    //   alert('โปรดกรอกราคา');
+    //   return;
+    // }
+
+
 
     this.cars.push(this.car);
     this.car={

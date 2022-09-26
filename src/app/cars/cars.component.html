@@ -1,21 +1,24 @@
-<form (ngSubmit)="saveCar()">
+<form (ngSubmit)="saveCar(f)" #f="ngForm">
   <div class="row">
     <div class="col-md-3">
       <div class="form-group">
         <label for="">ชื่อรถ</label>
-        <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="car.name" name="name" required>
+        <input type="text" class="form-control" placeholder="ชื่อรถ" [(ngModel)]="car.name" name="name" #name="ngModel"
+          required>
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group">
         <label for="">Model</label>
-        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="car.model" name="model">
+        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="car.model" name="model"
+          #model="ngModel">
       </div>
     </div>
     <div class="col-md-3">
       <div class="form-group">
         <label for="">ราคา</label>
-        <input type="number" class="form-control" placeholder="ราคา" [(ngModel)]="car.price" name="price" required>
+        <input type="number" class="form-control" placeholder="ราคา" [(ngModel)]="car.price" name="price"
+          #price="ngModel" required>
       </div>
     </div>
     <div class="col-md-3">
@@ -49,6 +52,7 @@ Model: {{car.model}}
       <th width="50%">ชื่อยี่ห้อ</th>
       <th>รุ่น</th>
       <th>ราคา</th>
+      <th>Vat</th>
     </tr>
   </thead>
   <tbody>
@@ -61,6 +65,7 @@ Model: {{car.model}}
         <span *ngIf="rs.model !='' && rs.model != null">{{rs.model}}</span>
       </td>
       <td>{{rs.price}}</td>
+      <td>{{rs.vat}}</td>
     </tr>
   </tbody>
 </table>
