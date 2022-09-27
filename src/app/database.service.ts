@@ -10,9 +10,7 @@ export class DatabaseService {
 
 // code
 getCars(){
-  this.http.get('http://localhost/mycar/getCardate.php').subscribe((res)=>{
-    console.log(res);
-  })
+  return this.http.get('http://localhost/mycar/getCardate.php');
 }
 
 }

@@ -55,7 +55,10 @@ export class CarsComponent implements OnInit, OnChanges {
   constructor(private db: DatabaseService) { }
 
   ngOnInit(): void {
-    this.db.getCars();
+    this.db.getCars().subscribe((res:any)=>{
+      console.log(res);
+      this.cars = res.data;
+    });
 
 
     // console.log(this.cars);
