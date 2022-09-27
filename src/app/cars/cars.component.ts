@@ -129,7 +129,13 @@ export class CarsComponent implements OnInit, OnChanges {
   }
 
   onSaveEdit(){
-    console.log(this.car);
+
+    this.db.updateCar(this.car).subscribe((res:any)=>{
+      console.log(res);
+      this.loadCars();
+    });
+
+    // console.log(this.car);
     this.flag = 'NEW';
     this.car={
       name: '',

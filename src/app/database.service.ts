@@ -26,7 +26,9 @@ export class DatabaseService {
   }
 
   // update ข้อมูลรถ
-
+  updateCar(car:any){
+    return this.http.post(this.urlApi+'/mycar/updateCardate.php',car);
+  }
   // ลบข้อมูลรถ
 
   // ข้อมูลรถ id
