@@ -16,10 +16,12 @@ export interface Car{
   styleUrls: ['./cars.component.scss']
 })
 export class CarsComponent implements OnInit, OnChanges {
+
   flag = 'NEW';
   // name = 'Honda';
   // model = 'CRV';
   // price = 1000000;
+  p = 1;
 
   car:Car={
     name: '',
