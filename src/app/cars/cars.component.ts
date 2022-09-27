@@ -55,14 +55,20 @@ export class CarsComponent implements OnInit, OnChanges {
   constructor(private db: DatabaseService) { }
 
   ngOnInit(): void {
+    this.loadCars();
+
+    // console.log(this.cars);
+  }
+
+  // โหลดข้อมูลรถ
+  loadCars(){
     this.db.getCars().subscribe((res:any)=>{
       console.log(res);
       this.cars = res.data;
     });
 
-
-    // console.log(this.cars);
   }
+
 
   ngOnChanges(changes: SimpleChanges): void {
 
@@ -84,6 +90,7 @@ export class CarsComponent implements OnInit, OnChanges {
 
     this.db.saveCar(this.car).subscribe((res:any)=>{
       console.log(res);
+      this.loadCars();
     });
 
     // if(this.car.name == ''){
