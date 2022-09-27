@@ -47,7 +47,9 @@ Model: {{car.model}}
   ราคา: {{c.price}}
 </div> -->
 
-<table class="table table-striped table-hover table-bordered">
+<button class="btn btn-info" type="button" (click)="exportToExcel()">ส่งออก Excel</button>
+
+<table class="table table-striped table-hover table-bordered" #export>
   <thead>
     <tr class="bg-dark text-white">
       <td>#</td>
