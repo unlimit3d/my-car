@@ -1,1 +1,22 @@
-<p>customer works!</p>
+<form [formGroup]="frmCustomer" (ngSubmit)="saveCustomer()">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="">ชื่อลูกค้า:</label>
+        <input type="text" class="form-control" placeholder="ชื่อลูกค้า" formControlName="name">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="">เบอร์โทร:</label>
+        <input type="text" class="form-control" placeholder="เบอร์โทร" formControlName="tel">
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="">&nbsp;</label><br>
+      <button type="submit" class="btn btn-success">เพิ่ม</button>
+    </div>
+  </div>
+</form>
