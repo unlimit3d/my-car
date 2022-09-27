@@ -82,6 +82,10 @@ export class CarsComponent implements OnInit, OnChanges {
     this.car.vat = vat;
     console.log(vat);
 
+    this.db.saveCar(this.car).subscribe((res:any)=>{
+      console.log(res);
+    });
+
     // if(this.car.name == ''){
     //   alert('โปรดกรอกชื่อยี่ห้อ');
     //   return;
@@ -93,8 +97,8 @@ export class CarsComponent implements OnInit, OnChanges {
     // }
 
 // if(this.flag == 'NEW'){
-  this.car.id = this.cars.length+1;
-  this.cars.push(this.car);
+  // this.car.id = this.cars.length+1;
+  // this.cars.push(this.car);
 // }else if(this.flag == 'EDIT'){
 
 // }
