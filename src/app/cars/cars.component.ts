@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DatabaseService } from '../database.service';
 
 export interface Car{
   id?:number;
@@ -51,10 +52,13 @@ export class CarsComponent implements OnInit, OnChanges {
   }
 ];
 
-  constructor() { }
+  constructor(private db: DatabaseService) { }
 
   ngOnInit(): void {
-    console.log(this.cars);
+    this.db.getCars();
+
+
+    // console.log(this.cars);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
