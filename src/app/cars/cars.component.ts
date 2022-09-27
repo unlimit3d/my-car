@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DatabaseService } from '../database.service';
-
+import * as XLSX from 'xlsx';
 export interface Car{
   id?:number;
   name:string;
@@ -146,5 +146,14 @@ export class CarsComponent implements OnInit, OnChanges {
     };
   }
 
+  // ส่งออก Excel
+  exportToExcel() {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.cars);
+    const WB: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet( WB, worksheet, 'example' );
+    XLSX.writeFile( WB, 'example.xlsx' );
+
+    // FileSaver.saveAs(data, fileName);
+  }
 
 }
