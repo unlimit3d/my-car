@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     username:['', Validators.required],
     password:['', [Validators.required, Validators.minLength(6)]],
   });
+  errorMsg: any = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient, private db: DatabaseService) { }
 
@@ -22,8 +23,14 @@ export class LoginComponent implements OnInit {
 
   onLogin(){
     console.log(this.frmLogin.value);
-    this.http.post(this.db.urlApi+'/chk_login.php', this.frmLogin.value).subscribe((res:any)=>{
+    this.errorMsg  = '';
+    this.http.post(this.db.urlApi+'/check_login.php', this.frmLogin.value).subscribe((res:any)=>{
       console.log(res);
+      if(res.name){
+        localStorage.setItem('login', JSON.stringify(res));
+      }else{
+        this.errorMsg = res.error;
+      }
     });
     // {
     //   username: this.frmLogin.value.username,
