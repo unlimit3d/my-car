@@ -5,9 +5,10 @@ import { CarsComponent } from './cars/cars.component';
 import { CustomerComponent } from './customer/customer.component';
 
 const routes: Routes = [
-  {path:'', component: AdminComponent},
-  {path:'cars',component: CarsComponent},
-  {path:'customer',component: CustomerComponent},
+  {path:'', component: AdminComponent, children:[
+    {path:'cars',component: CarsComponent},
+    {path:'customer',component: CustomerComponent},
+  ]},
 ];
 
 @NgModule({
