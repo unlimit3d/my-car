@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,13 +6,23 @@ import { Injectable } from '@angular/core';
 })
 export class DatabaseService {
 
-  urlApi = 'http://localhost/mycar';
+  urlApi = 'http://10.10.11.186/mycar';
 
   constructor(private http: HttpClient) { }
 
+
+  get headers() {
+    const token = JSON.parse(localStorage.getItem('login')!)?.jwt;
+    return new HttpHeaders({
+      // 'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+      'Cache-Control': 'no-cache',
+    });
+  }
+
   // ดึงข้อมูลรถทั้งหมด
   getCars(){
-    return this.http.get(this.urlApi+'/getCardate.php');
+    return this.http.get(this.urlApi+'/getCardate.php', {headers: this.headers});
   }
 
   // เพิ่มข้อมูลรถ

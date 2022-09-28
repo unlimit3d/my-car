@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DatabaseService } from '../database.service';
 
 @Component({
@@ -16,7 +17,12 @@ export class LoginComponent implements OnInit {
   });
   errorMsg: any = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private db: DatabaseService) { }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private db: DatabaseService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +34,9 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if(res.name){
         localStorage.setItem('login', JSON.stringify(res));
+
+        this.router.navigateByUrl('/admin/cars');
+
       }else{
         this.errorMsg = res.error;
       }
