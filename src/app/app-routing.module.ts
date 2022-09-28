@@ -7,6 +7,7 @@ const routes: Routes = [
   {path:'', redirectTo:'/cars', pathMatch:'full'},
   {path:'cars',component: CarsComponent},
   {path:'customer',component: CustomerComponent},
+  {path:'login', loadChildren: ()=>import('./login/login.module').then(m=>m.LoginModule)}
 ];
 
 @NgModule({
