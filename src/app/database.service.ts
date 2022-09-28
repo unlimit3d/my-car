@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class DatabaseService {
 
-  urlApi = 'http://localhost';
+  urlApi = 'http://localhost/mycar';
 
   constructor(private http: HttpClient) { }
 
   // ดึงข้อมูลรถทั้งหมด
   getCars(){
-    return this.http.get(this.urlApi+'/mycar/getCardate.php');
+    return this.http.get(this.urlApi+'/getCardate.php');
   }
 
   // เพิ่มข้อมูลรถ
@@ -22,7 +22,7 @@ export class DatabaseService {
   //   price: 0
   // };
   saveCar(car:any){
-    return this.http.post(this.urlApi+'/mycar/pushCardate.php',car);
+    return this.http.post(this.urlApi+'/pushCardate.php',car);
   }
 
   // update ข้อมูลรถ
