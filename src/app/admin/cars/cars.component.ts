@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { DatabaseService } from '../database.service';
+import { DatabaseService } from '../../database.service';
 import * as XLSX from 'xlsx';
 export interface Car{
   id?:number;

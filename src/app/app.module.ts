@@ -5,17 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { CarsComponent } from './cars/cars.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomerComponent } from './customer/customer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent,
-    CustomerComponent
   ],
   imports: [
     BrowserModule,
